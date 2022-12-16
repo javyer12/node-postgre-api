@@ -1,4 +1,14 @@
 const app = require('../app');
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+
+/**
+ * @openapi
+ * /delete-hello:
+ *   delete:
+ *     description: Welcome to swagger-jsdoc!
+ *     responses:
+ *       404:
+ *         description: Returns a mysterious string.
+ */
+app.delete('/delete', (req, res) => {
+    res.send('Delete World!');
 });
