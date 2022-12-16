@@ -12,18 +12,17 @@ const swaggerOption = {
             title: "Docu api",
             description: "Api Documentation",
             contact: {
-                name: "luisa",
+                name: "frank",
                 url: "https://www.linkedin.com",
             },
             servers: [ "http://localhost:3000" ]
         }
     },
-    basePath: "/",
-    apis: [ "index.js" ]
+    basePath: "/users",
+    apis: [ "./routes/getuserbyid.js", "./routes/index.js", "index.js", "./routes/createUser.js" ]
 }
 
 const swaggerDocs = swaggerJsdoc(swaggerOption);
 app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
-
 
 module.exports = app;
