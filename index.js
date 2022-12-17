@@ -1,11 +1,13 @@
 const bodyParser = require('body-parser');
 const port = 3005
-// const portSwagger = 3000
 const express = require('express');
 const app = express();
 const db = require('./services/user.services');
-// const app = require('./app');
 const APIVERSION = "v1";
+
+//Swagger version
+// const portSwagger = 3000
+// const app = require('./app');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
