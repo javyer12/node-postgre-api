@@ -1,4 +1,5 @@
 const app = require('../app');
+const db = require("../services/user.services")
 const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'javy',
@@ -25,19 +26,4 @@ const pool = new Pool({
  *               schema:
  *               type: json
  */
-app.post("/", (request, response) => {
-    const { name, email } = request.body;
-    try {
-        if (name === null | email === null) {
-            return new Error("name or email is null")
-        }
-        pool.query('INSERT INTO users (name, email) VALUES ($1,$2) RETURNING *', [ name, email ], (err, results) => {
-            if (err) {
-                throw new Error(`Something went worng. ${err.message}`)
-            }
-            response.status(200).send(`User added with ID: ${results.rows[ 0 ].id}`)
-        })
-    } catch (err) {
-        throw new Error(`Something faild trying to connct to DB. ${err.message}`)
-    }
-})
+app.post("/create-user", db.createUser)

@@ -16,16 +16,19 @@ const pool = new Pool({
  *        produces:
  *              -  application / json
  *        parameters:
- *              -   in: body
+ *              -   in: path
  *                  name: id
  *                  description: ID of users
  *        responses:
  *         200:
  *               description:  returning nothing
- *               schema:
+ *               content:
+ *                  application/json:
+ *                      schema:
  *               type: json
  */
-app.get('/:id', (request, response) => {
+
+app.use('/:id', (request, response) => {
     try {
         const id = parseInt(request.params.id)
         pool.query('SELECT * FROM users WHERE id = $1', [ id ], (err, results) => {
