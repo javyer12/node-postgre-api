@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const port = 3005
-const portSwagger = 3000
+// const portSwagger = 3000
 const express = require('express');
 const app = express();
 const db = require('./services/user.services');
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', (req, res) => {
     res.json({
-        "GET": "/api/v1/users",
+        "Users": "/api/v1/users",
         "GET": "/api/v1/user/:id",
         "POST": "/api/v1/create-user",
         "PUT": "/api/v1/update-user/:id",
@@ -27,9 +27,10 @@ app.post(`/api/${APIVERSION}/create-user`, db.createUser);
 app.put(`/api/${APIVERSION}/update-user/:id`, db.updateUser);
 app.delete(`/api/${APIVERSION}/delete-user/:id`, db.deleteUser);
 
-app.listen(portSwagger, () => {
-    console.log(`App running on port ${portSwagger} with Swagger documentation.`)
-})
 app.listen(port, () => {
     console.log(`App running on port ${port}. `)
 })
+
+// app.listen(portSwagger, () => {
+//     console.log(`App running on port ${portSwagger} with Swagger documentation.`)
+// })

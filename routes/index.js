@@ -2,13 +2,13 @@ const app = require('../app');
 
 /**
  * @openapi
- * /delete-hello:
- *   delete:
+ * /hello:
+ *   get:
  *     description: Welcome to swagger-jsdoc!
  *     responses:
- *       404:
+ *       200:
  *         description: Returns a mysterious string.
  */
-app.delete('/delete', (req, res) => {
-    res.send('Delete World!');
+app.get('/hello', (req, res) => {
+    res.json('Hello World!');
 });

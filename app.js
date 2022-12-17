@@ -15,7 +15,7 @@ const swaggerOption = {
                 name: "frank",
                 url: "https://www.linkedin.com",
             },
-            servers: [ "http://localhost:3000" ]
+            servers: [ "http://localhost:3005/api/v1" ]
         }
     },
     basePath: "/users",
