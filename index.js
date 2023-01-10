@@ -3,6 +3,7 @@ const port = 3005
 const express = require('express');
 const app = express();
 const db = require('./services/user.services');
+const firebase = require('./controllers/user.controller');
 const APIVERSION = "v1";
 
 //Swagger version
@@ -36,3 +37,10 @@ app.listen(port, () => {
 // app.listen(portSwagger, () => {
 //     console.log(`App running on port ${portSwagger} with Swagger documentation.`)
 // })
+
+
+
+// firebase
+
+app.post('/firebase/create-user', firebase.createUser);
+app.post('/firebase/login', firebase.validateUser);
