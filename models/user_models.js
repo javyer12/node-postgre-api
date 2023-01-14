@@ -9,10 +9,17 @@ class Users {
     }
     async create(data) {
         data.password = await this.constructor.encrypt(data.password);
+
         const newUser = this.collection.push()
         newUser.set(data)
-
         return newUser.key
+    }
+
+    async createContact(data) {
+        const contactInfo = this.collection.push()
+        contactInfo.set(data)
+
+        return contactInfo.key
     }
 
     async validateUser(data) {
@@ -29,6 +36,16 @@ class Users {
         }
         return false
     }
+
+    async getUsers(amount) {
+        const query = await this.collection
+            .limitToLast(amount)
+            .once('value');
+
+        const data = query.val();
+        return data;
+    }
+
 
     static async encrypt(password) {
         const saltRounds = 10;

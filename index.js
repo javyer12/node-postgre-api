@@ -42,5 +42,22 @@ app.listen(port, () => {
 
 // firebase
 
+app.get('/firebase/get-user', firebase.getUser);
+app.post('firebase/create-contact', firebase.createContacts);
 app.post('/firebase/create-user', firebase.createUser);
 app.post('/firebase/login', firebase.validateUser);
+
+process.on('unhandledRejection', error => {
+    console.error("UnhandledRejection", error.message, error)
+})
+
+process.on('unhandledException', error => {
+    console.error("UnhandledException", error.message, error)
+})
+
+// manejo cuando falla la validacion
+// controlar el error 404
+// controlar el error 404 de inert
+
+
+// modelos en singular, controladores en plural
