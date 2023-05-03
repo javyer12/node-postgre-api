@@ -1,0 +1,8 @@
+const S3Client = require("@aws-sdk/client-s3");
+console.log(typeof S3Client);
+// Set the AWS Region.
+const REGION = "us-east-2"; //e.g. "us-east-1"
+// Create an Amazon S3 service client object.
+const s3Client = new S3Client();
+s3Client = { region: REGION };
+exports.modules = s3Client;
