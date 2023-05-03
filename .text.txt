@@ -1,0 +1,4 @@
+esta:api de personas, conectada a postgresql
+api (del curso de node) sera de productos, para el proyecto de tienda, (con sql server) (back y front)
+new conexion de node y pg + postgre   (back y front)
+api con typescript (curso de youtube)
